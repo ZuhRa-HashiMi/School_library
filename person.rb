@@ -9,4 +9,7 @@ class Person
 # accessor get method
 attr_reader :id
 
+# accessor get and set method
+attr_accessor :name, :age,
+
 end
