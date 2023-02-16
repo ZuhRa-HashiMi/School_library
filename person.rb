@@ -19,5 +19,8 @@ def of_age?
 end 
 
 #publick method
+def can_use_services?
+    of_age? || @parent_permission
+end
 
 end
