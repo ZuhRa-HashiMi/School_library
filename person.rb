@@ -18,7 +18,8 @@ class Person
     age >= 18
   end
 
-  # publick method
+  # public method
+  public 
   def can_use_services?
     of_age? || @parent_permission
   end
