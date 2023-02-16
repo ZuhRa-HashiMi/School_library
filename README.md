@@ -37,6 +37,14 @@ This repo is a school library tool that allows you to record what books are in t
 ## 🛠 Built With <a name="built-with"></a>
 Ruby
 
+<!-- Features -->
+
+### Key Features <a name="key-features" /> 
+**[useing module]**
+**[useing all? any? filter?]**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ### Tech Stack <a name="tech-stack"></a>
 
 
