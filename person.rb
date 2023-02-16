@@ -10,6 +10,14 @@ class Person
 attr_reader :id
 
 # accessor get and set method
-attr_accessor :name, :age,
+attr_accessor :name, :age
+
+#private method
+private
+def of_age?
+    age >= 18
+end 
+
+#publick method
 
 end
