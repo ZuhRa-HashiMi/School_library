@@ -6,5 +6,7 @@ class Person
         @age = age
         @parent_permission = parent_permission
     end
+# accessor get method
+attr_reader :id
 
 end
