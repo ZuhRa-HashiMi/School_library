@@ -29,12 +29,13 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Morse-Code] <a name="about-project"></a>
+# 📖 [School Library] <a name="about-project"></a>
 
-This is a simple program in ruby that helps to decode the Morse Code message
+This repo is a school library tool that allows you to record what books are in the library and who borrows them, the project focused on practicing the main four concepts in oop using ruby.
 
 
 ## 🛠 Built With <a name="built-with"></a>
+Ruby
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -45,15 +46,6 @@ This is a simple program in ruby that helps to decode the Morse Code message
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 </details>
-
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-- **Use a module inside your class.**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
@@ -81,7 +73,7 @@ In order to run this project you need to have basic knowledge of
 
 Clone this repository to your desired folder:
 
-`https://github.com/Bornittah/morse-code.git`
+`https://github.com/ZuhRa-HashiMi/School_library`
 
 ### Install
 
@@ -111,11 +103,6 @@ No deployment
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-👤 **Agasha Bornittah**
-
-- GitHub: [@Bornittah](https://github.com/Bornittah)
-- Twitter: [@AgashaBornittah](https://twitter.com/AgashaBornittah)
-- LinkedIn: [Bornittah](www.linkedin.com/in/agasha-bornittah)
 
 👤 **ZuhRa**
 
