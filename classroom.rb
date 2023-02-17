@@ -1,3 +1,4 @@
+
 class Classroom
   attr_accessor :label, :students
 
@@ -6,11 +7,11 @@ class Classroom
     @students = []
   end
 
-  def add_studens(student)
+  def add_student(student)
     @students.push(student)
     student.classroom = self
   end
 end
-classes = Classroom.new('one')
-p classes.students
-p classes.add_studens('zuhra')
+room = Classroom.new('A1')
+room.students
+puts add_student('zuhra')
