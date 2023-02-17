@@ -1,5 +1,10 @@
 require_relative 'nameable'
 class Person < Nameable
+    # accessor get method
+    attr_reader :id
+    # accessor get and set method
+    attr_accessor :name, :age
+    
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
@@ -7,11 +12,6 @@ class Person < Nameable
     @age = age
     @parent_permission = parent_permission
   end
-  # accessor get method
-  attr_reader :id
-
-  # accessor get and set method
-  attr_accessor :name, :age
 
   # private method
 
