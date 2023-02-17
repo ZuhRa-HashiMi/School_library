@@ -1,5 +1,3 @@
-# morse-code
-
 
 <a name="readme-top"></a>
 
