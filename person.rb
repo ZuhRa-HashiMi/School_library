@@ -1,4 +1,5 @@
 require_relative 'nameable'
+require_relative 'rental'
 class Person < Nameable
     # accessor get method
     attr_reader :id
@@ -11,6 +12,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   # private method
@@ -28,4 +30,9 @@ class Person < Nameable
   def correct_name
     @name
   end
+
+  def add_rental(date, book)
+    @rentals.push(Rental.new(date, book, self)) unless @rentals.include?(Rental.new(date, book, self))
+  end
+
 end
