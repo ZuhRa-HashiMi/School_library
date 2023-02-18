@@ -1,66 +1,57 @@
-require_relative 'book'
-require_relative 'rental'
-require_relative 'student'
-require_relative 'teacher'
+require './books'
+require './classroom'
+require './person'
+require './rental'
+require './student'
+require './teacher'
+require './people'
+require './rentingbooks'
 
-class App 
-    def initialize 
-        @book = []
-        @people = []
-        @rental = []
+class App
+  def initialize
+    @books = Books.new
+    @people = Peoplemodule.new
+    @rentals = RentingBooks.new()
+  end
+
+  def start
+    selection
+  end
+
+  def list_selections
+    puts ''
+    puts "Please choose an option by selecting a number:
+                1. List all books
+                2. List all people
+                3. Create person account
+                4. Create a book
+                5. Create a rental
+                6. List all rentals for a given person ID
+                7. Exit"
+    gets.chomp
+  end
+
+  def selection
+    case list_selections
+    when '1'
+      @books.booklist
+    when '2'
+      @people.peoplelist
+    when '3'
+      @people.create_person
+    when '4'
+      @books.create_book
+    when '5'
+      @rentals.create_rental
+    when '6'
+      @rentals.rentalslist
+    when '7'
+      puts 'Thank you for using the app. Goodbye!'
+      exit
+    else
+      puts 'Invalid input. Try again'
     end
+    selection
+  end
 
-    def book_list 
-        if @book.empty?
-            puts 'Book list is empty, please try to add a book. Thank you.'
-        else
-            @book.each_with_index do |book, index|
-                puts "(#{index}) Title: #{book.title}, Author: #{book.author}"
-            end
-        end
-    end
-
-    def people_list 
-        if @people.empty?
-            puts 'People list is empty, please try to add a people. Thank you.'
-        else
-            @people.each do |person|
-                puts "[#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
-            end
-        end
-    
-        def show_people
-            @people.each_with_index do |person, index|
-                puts "(#{index}) [#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
-            end
-        end
-
-        def show_rental
-            puts 'Select person'
-            show_people
-            puts "Enter the Id of person you want to selcet"
-            id = gets.chomp.to_i
-            puts "Rentals:"
-            @rental.each do |rent|
-                puts " Date: #{rent.date} Book: #{rent.book.title} Author: #{rent.book.author}" if rent.person.id == id
-            end
-        end
-
-        def create_person
-            print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-            option = gets.chomp
-        
-            case option
-            when '1'
-              create_student
-            when '2'
-              create_teacher
-            else
-              puts 'invalid input'
-            end
-        
-            write_people(@people)
-            puts 'Person created successfully'
-          end
-    end
 end

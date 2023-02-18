@@ -10,4 +10,6 @@ class Rental
   end
 
   attr_accessor :date, :book, :person
+  
+ 
 end
