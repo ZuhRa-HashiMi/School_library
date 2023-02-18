@@ -9,7 +9,7 @@ class Books
 
   def booklist
     puts 'No book found!' if @books.empty?
-    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
   end
 
   def create_book
