@@ -19,4 +19,14 @@ class App
             end
         end
     end
+
+    def people_list 
+        if @people.empty?
+            puts 'People list is empty, please try to add a people. Thank you.'
+        else
+            @people.each do |person|
+                puts "[#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+            end
+        end
+    end
 end
