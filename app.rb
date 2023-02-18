@@ -28,5 +28,22 @@ class App
                 puts "[#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
             end
         end
+    
+        def show_people
+            @people.each_with_index do |person, index|
+                puts "(#{index}) [#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+            end
+        end
+
+        def show_rental
+            puts 'Select person'
+            show_people
+            puts "Enter the Id of person you want to selcet"
+            id = gets.chomp.to_i
+            puts "Rentals:"
+            @rental.each do |rent|
+                puts " Date: #{rent.date} Book: #{rent.book.title} Author: #{rent.book.author}" if rent.person.id == id
+            end
+        end
     end
 end
