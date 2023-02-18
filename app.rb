@@ -45,5 +45,22 @@ class App
                 puts " Date: #{rent.date} Book: #{rent.book.title} Author: #{rent.book.author}" if rent.person.id == id
             end
         end
+
+        def create_person
+            print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+            option = gets.chomp
+        
+            case option
+            when '1'
+              create_student
+            when '2'
+              create_teacher
+            else
+              puts 'invalid input'
+            end
+        
+            write_people(@people)
+            puts 'Person created successfully'
+          end
     end
 end
