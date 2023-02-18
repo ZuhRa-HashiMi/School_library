@@ -11,7 +11,7 @@ class App
   def initialize
     @books = Books.new
     @people = Peoplemodule.new
-    @rentals = RentingBooks.new()
+    @rentals = RentingBooks.new(@books, @people)
   end
 
   def start
