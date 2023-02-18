@@ -9,8 +9,9 @@ class Peoplemodule
 
   def peoplelist
     puts 'No one found!' if @people.empty?
-    @people.each_with_index 
-    { |_person, index| puts "#{index}) [#{_person.class}], Name: #{_person.name}, Age: #{_person.age}, Id: #{_person.id}" }
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}], Name: #{person.name}, Age: #{person.age}, Id: #{person.id}"
+    end
   end
 
   def create_person
