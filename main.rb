@@ -8,5 +8,3 @@ def main
 end
 
 main
-
-

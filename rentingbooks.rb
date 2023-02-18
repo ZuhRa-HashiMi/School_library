@@ -3,11 +3,11 @@ require './people'
 require './books'
 
 class RentingBooks
-    attr_accessor :rentals, :people, :books
-    
+  attr_accessor :rentals, :people, :books
+
   def initialize(books, person)
     @books = books
-    @people =  person
+    @people = person
     @rentals = []
   end
 
@@ -39,7 +39,7 @@ class RentingBooks
       print " \nDate: "
       date = gets.chomp
 
-      rent = Rental.new(date,@books.books[book_id], @people.people[person_id])
+      rent = Rental.new(date, @books.books[book_id], @people.people[person_id])
       @rentals.push(rent)
       puts 'Rental created successfully!'
     end
