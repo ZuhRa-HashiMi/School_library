@@ -10,5 +10,13 @@ class App
         @rental = []
     end
 
-    
+    def book_list 
+        if @book.empty?
+            puts 'Book list is empty, please try to add a book. Thank you.'
+        else
+            @book.each_with_index do |book, index|
+                puts "(#{index}) Title: #{book.title}, Author: #{book.author}"
+            end
+        end
+    end
 end
