@@ -27,16 +27,4 @@ class App
   def create_person
     @people.person
   end
-
-  def create_book
-    @books.create
-  end
-
-  def create_rental
-    @rentals.create
-  end
-
-  def rentalslist
-    @rentals
-  end
 end
