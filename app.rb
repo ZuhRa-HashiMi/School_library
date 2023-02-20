@@ -27,4 +27,8 @@ class App
   def create_person
     @people.person
   end
+
+  def create_book
+    @books.create
+  end
 end
