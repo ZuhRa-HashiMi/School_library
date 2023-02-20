@@ -17,6 +17,12 @@ class App
   end
 
   def booklist
-    @books
+    @books = books
   end
+
+  def peoplelist
+    @people
+  end
+
+  def 
 end
