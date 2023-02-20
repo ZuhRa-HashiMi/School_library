@@ -24,5 +24,7 @@ class App
     @people
   end
 
-  def 
+  def create_person
+    @people.person
+  end
 end
