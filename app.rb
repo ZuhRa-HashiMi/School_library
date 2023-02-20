@@ -15,4 +15,8 @@ class App
     @people = Peoplemodule.new
     @rentals = RentingBooks.new(@books, @people)
   end
+
+  def booklist
+    @books
+  end
 end
