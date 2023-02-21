@@ -4,10 +4,14 @@ class Book
   def initialize(title, author)
     @title = title
     @author = author
-    @rentals = rentals
+    @rentals = []
   end
 
   def add_rental(date, person)
     @rentals.push(Rental.new(date, self, person)) unless @rentals.include?(Rental.new(date, self, person))
+  end
+
+  def to_json(*_args)
+    { 'title' => @title, 'author' => @author, 'rental' => @rentals }
   end
 end
