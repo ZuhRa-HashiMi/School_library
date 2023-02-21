@@ -3,12 +3,30 @@ require './people'
 require './books'
 
 class RentingBooks
+  FILE_STORE = './data/rental.json'.freeze
   attr_accessor :rentals, :people, :books
 
   def initialize(books, person)
     @books = books
     @people = person
-    @rentals = []
+    @rentals = load_rental
+  end
+
+  def load_rental
+    if File.directory?('data') && File.file?(FILE_STORE)
+      File.zero?(FILE_STORE) ? [] : JSON.parse(File.read(FILE_STORE))
+    elsif File.directory?('data') && !File.exist?(FILE_STORE)
+      FileUtils.touch(FILE_STORE)
+      []
+    else
+      FileUtils.mkdir_p(['data'])
+      FileUtils.touch(FILE_STORE)
+      []
+    end
+  end
+
+  def save_file
+    File.write(FILE_STORE, JSON.pretty_generate(@rentals))
   end
 
   def rentalslist
@@ -18,7 +36,7 @@ class RentingBooks
     id = gets.chomp.to_i
     puts 'Rentals:'
     @rentals.each do |rent|
-      puts "Date: #{rent.date}, Book: #{rent.book.title} by #{rent.book.author}" if rent.person.id == id
+      puts "Date: #{rent['date']}, Book: #{rent['title']} by #{rent['name']}" if rent['id'] == id
     end
   end
 
@@ -39,8 +57,9 @@ class RentingBooks
       print " \nDate: "
       date = gets.chomp
 
-      rent = Rental.new(date, @books.books[book_id], @people.people[person_id])
+      rent = Rental.new(date, @books.books[book_id], @people.people[person_id]).to_json
       @rentals.push(rent)
+      save_file
       puts 'Rental created successfully!'
     end
   end
