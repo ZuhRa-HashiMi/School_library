@@ -8,4 +8,8 @@ class Rental
     @book = book
     @person = person
   end
+
+  def to_json(*_args)
+    { 'date' => @date, 'title' => @book['title'], 'name' => @person['name'], 'id' => @person['id'] }
+  end
 end

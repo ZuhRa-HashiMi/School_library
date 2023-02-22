@@ -1,16 +1,34 @@
 require './person'
 
 class Peoplemodule
+  FILE_STORE = './data/person.json'.freeze
   attr_accessor :people
 
   def initialize
-    @people = []
+    @people = load_person
+  end
+
+  def load_person
+    if File.directory?('data') && File.file?(FILE_STORE)
+      File.zero?(FILE_STORE) ? [] : JSON.parse(File.read(FILE_STORE))
+    elsif File.directory?('data') && !File.exist?(FILE_STORE)
+      FileUtils.touch(FILE_STORE)
+      []
+    else
+      FileUtils.mkdir_p(['data'])
+      FileUtils.touch(FILE_STORE)
+      []
+    end
+  end
+
+  def save_file
+    File.write(FILE_STORE, JSON.pretty_generate(@people))
   end
 
   def peoplelist
     puts 'No one found!' if @people.empty?
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}], Name: #{person.name}, Age: #{person.age}, Id: #{person.id}"
+      puts "#{index}) [#{person['class']}], Name: #{person['name']}, Age: #{person['age']}, Id: #{person['id']}"
     end
   end
 
@@ -33,14 +51,15 @@ class Peoplemodule
     age = gets.chomp
 
     print 'teacher specialization: '
-    specialization = gets.chomp
+    specialization = gets.chomp.capitalize
 
     print 'teacher name: '
-    name = gets.chomp
+    name = gets.chomp.capitalize
 
-    teacher = Teacher.new(age, specialization, name, parent_permission: true)
+    teacher = Teacher.new(age, specialization, name, parent_permission: true).to_json
     puts 'Teacher created successfully'
     @people.push(teacher)
+    save_file
   end
 
   def create_student
@@ -48,17 +67,19 @@ class Peoplemodule
     age = gets.chomp
 
     print 'student name: '
-    name = gets.chomp
+    name = gets.chomp.capitalize
 
     print 'has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase
     case parent_permission
     when 'n'
-      student = Student.new(age, name, parent_permission: false)
+      student = Student.new(age, name, parent_permission: false).to_json
       @people.push(student)
+      save_file
     when 'y'
-      student = Student.new(age, name, parent_permission: true)
+      student = Student.new(age, name, parent_permission: true).to_json
       @people.push(student)
+      save_file
     end
     puts 'Student created successfully'
   end

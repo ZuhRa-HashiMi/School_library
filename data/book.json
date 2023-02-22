@@ -1,0 +1,14 @@
+[
+  {
+    "title": "new book",
+    "author": "girma",
+    "rental": null
+  },
+  {
+    "title": "Poor dad rich dad",
+    "author": "Charles",
+    "rental": [
+
+    ]
+  }
+]
