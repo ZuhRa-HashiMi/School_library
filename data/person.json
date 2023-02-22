@@ -1,0 +1,25 @@
+[
+  {
+    "id": 275,
+    "name": "Girma",
+    "age": "23",
+    "parent_permission": true,
+    "class": "Student"
+  },
+  {
+    "id": 340,
+    "class": "Teacher",
+    "age": "berhanu",
+    "name": "Berhanu",
+    "parent_permission": true,
+    "specialization": "Software"
+  },
+  {
+    "id": 730,
+    "class": "Teacher",
+    "age": "23",
+    "name": "Girma",
+    "parent_permission": true,
+    "specialization": "Bioliogy"
+  }
+]
