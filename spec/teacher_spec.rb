@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rspec'
 describe Teacher do
   describe '#initialize' do
     before :each do
