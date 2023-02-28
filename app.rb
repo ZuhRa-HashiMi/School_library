@@ -40,3 +40,4 @@ class App
     @rentals
   end
 end
+
