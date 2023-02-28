@@ -25,7 +25,6 @@ class Peoplemodule
     File.write(FILE_STORE, JSON.pretty_generate(@people))
   end
 
-
   def peoplelist
     puts 'No one found!' if @people.empty?
     @people.each_with_index do |person, index|
