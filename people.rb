@@ -21,6 +21,9 @@ class Peoplemodule
     end
   end
 
+  def save_file
+    File.write(FILE_STORE, JSON.pretty_generate(@people))
+  end
 
 
   def peoplelist
