@@ -10,7 +10,6 @@ class Book
   def add_rental(date, person)
     @rentals.push(Rental.new(date, self, person)) unless @rentals.include?(Rental.new(date, self, person))
   end
-
   def to_json(*_args)
     {
       'json_class' => self.class.name,
@@ -18,4 +17,5 @@ class Book
       'author' => @author
     }
   end
+ 
 end

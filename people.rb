@@ -8,22 +8,8 @@ class Peoplemodule
     @people = load_person
   end
 
-  def load_person
-    if File.directory?('data') && File.file?(FILE_STORE)
-      File.zero?(FILE_STORE) ? [] : JSON.parse(File.read(FILE_STORE))
-    elsif File.directory?('data') && !File.exist?(FILE_STORE)
-      FileUtils.touch(FILE_STORE)
-      []
-    else
-      FileUtils.mkdir_p(['data'])
-      FileUtils.touch(FILE_STORE)
-      []
-    end
-  end
+#  add def load
 
-  def save_file
-    File.write(FILE_STORE, JSON.pretty_generate(@people))
-  end
 
   def peoplelist
     puts 'No one found!' if @people.empty?
